@@ -20,7 +20,7 @@ struct MainTabBarView: View {
 
             NavigationStack {
                 HomeView()
-                    .navigationTitle("HOME")
+                    //.navigationTitle("HOME")
             }
             .tabItem {
                 Label("HOME", systemImage: "house.fill")
