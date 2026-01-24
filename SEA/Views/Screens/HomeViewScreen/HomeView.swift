@@ -73,6 +73,12 @@ struct HomeView: View {
                            print("Navigate to Top 10 list")
                        }
                    )
+                MostPopularSectionView(
+                    events: featuredEvents
+                ) { event in
+                    print("Wishlist tapped for \(event.title)")
+                }
+
             }
             .padding(.vertical)
             Divider()

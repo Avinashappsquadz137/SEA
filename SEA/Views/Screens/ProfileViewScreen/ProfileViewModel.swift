@@ -26,6 +26,14 @@ final class ProfileViewModel: ObservableObject {
     func openPrivacyPolicy() {
         print("Privacy Policy")
     }
+    
+    func myTickets() {
+        print("My Tickets")
+    }
+    
+    func myFavourite() {
+        print("My Favourite")
+    }
 }
 
 struct SettingsSectionView<Content: View>: View {

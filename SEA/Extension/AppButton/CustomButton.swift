@@ -14,24 +14,21 @@ struct PrimaryButton: View {
     var titleColor: Color = .white
     var isDisabled: Bool = false
     let action: () -> Void
-
+    var borderColor: Color? = nil
     var body: some View {
         Button(action: action) {
             Text(title)
                 .frame(maxWidth: .infinity, minHeight: 50)
                 .background(isDisabled ? Color.gray : backgroundColor)
                 .foregroundColor(titleColor)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(borderColor ?? .clear, lineWidth: 1)
+                )
                 .cornerRadius(12)
         }
         .disabled(isDisabled)
     }
 }
-//PrimaryButton(
-//    title: "Skip",
-//    backgroundColor: .gray,
-//    titleColor: .black,
-//    width: 120
-//) {
-//    print("Skipped")
-//}
+
 

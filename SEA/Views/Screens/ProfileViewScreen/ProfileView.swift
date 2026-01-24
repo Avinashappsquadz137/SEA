@@ -23,6 +23,16 @@ struct ProfileView: View {
                             title: "Edit profile",
                             action: viewModel.editProfile
                         )
+                        SettingsRowView(
+                            icon: "ticket",
+                            title: "My Ticket",
+                            action: viewModel.myTickets
+                        )
+                        SettingsRowView(
+                            icon: "heart",
+                            title: "My Favourite",
+                            action: viewModel.myFavourite
+                        )
                     }
 
                     // MARK: - Communication Preferences
@@ -66,6 +76,15 @@ struct ProfileView: View {
                             action: viewModel.openPrivacyPolicy
                         )
                     }
+                    PrimaryButton(
+                        title: "Logout",
+                        backgroundColor: .clear,
+                        titleColor: .red,
+                        borderColor: .red
+                    ) {
+                        print("Logout tapped")
+                    }
+                    
                 }
                 .padding()
             }
