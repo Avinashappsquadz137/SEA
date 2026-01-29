@@ -35,55 +35,61 @@ struct HomeView: View {
             imageName: "SEAicon"
         )
     ]
-
+    
     var body: some View {
-        VStack(spacing: 0) {
-            AppHeaderView(
-                userName: "AVINASH",
-                onWalletTap: {
-                    print("Wallet tapped")
-                },
-                onNotificationTap: {
-                    print("Notification tapped")
-                }
-            )
-            ScrollView {
-                HomeSearchSectionView()
-                
-                VStack(alignment: .leading, spacing: 16) {
-
-                    Text("Featured Events")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-
-                    ForEach(featuredEvents.prefix(2)) { event in
-                        FeaturedEventCardView(
-                            event: event,
-                            onWishlistTap: {
-                                print("Wishlist tapped for \(event.title)")
-                            }
-                        )
+        NavigationStack {
+            VStack(spacing: 0) {
+                AppHeaderView(
+                    userName: "AVINASH",
+                    onWalletTap: {
+                        print("Wallet tapped")
+                    },
+                    onNotificationTap: {
+                        print("Notification tapped")
                     }
+                )
+                ScrollView {
+                    HomeSearchSectionView()
+                    
+                    VStack(alignment: .leading, spacing: 16) {
+                        
+                        Text("Featured Events")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
+                        
+                        ForEach(featuredEvents.prefix(2)) { event in
+                            NavigationLink {
+                                EventsDetailsView(event: event)
+                            } label: {
+                                FeaturedEventCardView(
+                                    event: event,
+                                    onWishlistTap: {}
+                                )
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    TopEventsSectionView(
+                        title: "Top 10 Events of 2026",
+                        events: featuredEvents,
+                        onSeeAllTap: {
+                            print("Navigate to Top 10 list")
+                        }
+                    )
+                    MostPopularSectionView(
+                        events: featuredEvents
+                    ) { event in
+                        print("Wishlist tapped for \(event.title)")
+                    }
+                    
                 }
-                TopEventsSectionView(
-                       title: "Top 10 Events of 2026",
-                       events: featuredEvents,
-                       onSeeAllTap: {
-                           print("Navigate to Top 10 list")
-                       }
-                   )
-                MostPopularSectionView(
-                    events: featuredEvents
-                ) { event in
-                    print("Wishlist tapped for \(event.title)")
-                }
-
+                .padding(.vertical)
+                Divider()
             }
-            .padding(.vertical)
-            Divider()
+            .overlay(ToastView())
+            .background(Color(.systemGroupedBackground))
         }
-        .overlay(ToastView())
-        .background(Color(.systemGroupedBackground))
     }
+    
 }

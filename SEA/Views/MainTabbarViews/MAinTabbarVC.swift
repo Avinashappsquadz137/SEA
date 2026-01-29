@@ -28,20 +28,20 @@ struct MainTabBarView: View {
             .tag(0)
 
             NavigationStack {
-                EventsView()
-                    .navigationTitle("EVENT")
+                ExploreView()
+                    .navigationTitle("EXPLORE")
             }
             .tabItem {
-                Label("EVENT", systemImage: "ticket")
+                Label("EXPLORE", systemImage: "magnifyingglass")
             }
             .tag(1)
 
             NavigationStack {
-                MovieView()
-                    .navigationTitle("MOVIES")
+                TicketView()
+                    //.navigationTitle("TICKET")
             }
             .tabItem {
-                Label("MOVIES", systemImage: "movieclapper")
+                Label("TICKET", systemImage: "ticket")
             }
             .tag(2)
 

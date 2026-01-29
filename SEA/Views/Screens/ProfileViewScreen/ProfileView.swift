@@ -24,11 +24,6 @@ struct ProfileView: View {
                             action: viewModel.editProfile
                         )
                         SettingsRowView(
-                            icon: "ticket",
-                            title: "My Ticket",
-                            action: viewModel.myTickets
-                        )
-                        SettingsRowView(
                             icon: "heart",
                             title: "My Favourite",
                             action: viewModel.myFavourite
