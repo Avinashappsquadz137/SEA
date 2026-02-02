@@ -6,20 +6,36 @@
 //
 
 import SwiftUI
+struct TicketType: Identifiable {
+    let id = UUID()
+    let name: String
+    let price: Int
+    let perks: [String]
+    var quantity: Int = 0
+}
 
 struct EventsDetailsView: View {
     let event: EventModel
     @State private var showLogin = false
+    @State private var tickets: [TicketType] = [
+        TicketType(name: "Silver", price: 999, perks: ["General Seating"]),
+        TicketType(name: "Gold", price: 1499, perks: ["Front Rows", "Free Drink"]),
+        TicketType(name: "Premium", price: 1999, perks: ["VIP Seating", "2 Drinks", "Meet & Greet"])
+    ]
+    var totalAmount: Int {
+        tickets.reduce(0) { $0 + ($1.price * $1.quantity) }
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
 
                 // MARK: - Hero Image
                 ZStack(alignment: .topTrailing) {
-                    Image("SEAicon") // replace with real event image
+                    Image("SEAicon")
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 300)
+                        .aspectRatio(16/9, contentMode: .fill)
+                        .frame(maxWidth: .infinity)
                         .clipped()
 
                     HStack(spacing: 12) {
@@ -82,6 +98,14 @@ struct EventsDetailsView: View {
                             }
                         }
                     }
+                    // MARK: - Select Tickets
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Select Tickets")
+                            .font(.headline)
+                        ForEach($tickets) { $ticket in
+                            TicketSelectionCard(ticket: $ticket)
+                        }
+                    }
                 }
                 .padding()
             }
@@ -92,6 +116,7 @@ struct EventsDetailsView: View {
         }
         .toolbar(.hidden, for: .tabBar)
     }
+    
 }
 
 
@@ -140,13 +165,15 @@ private extension EventsDetailsView {
             Divider()
 
             PrimaryButton(
-                title: "Buy Ticket",
-                backgroundColor: .brightOrange,
+                title: totalAmount > 0 ? "Pay ₹\(totalAmount)" : "Select Ticket",
+                backgroundColor: totalAmount > 0 ? .brightOrange : .gray,
                 titleColor: .white
             ) {
-                showLogin = true
-                print("Buy Ticket")
+                if totalAmount > 0 {
+                    showLogin = true
+                }
             }
+            .disabled(totalAmount == 0)
             .sheet(isPresented: $showLogin) {
                 LoginSignUPScreen(isPresented: $showLogin)
                     .presentationDetents([.medium])
