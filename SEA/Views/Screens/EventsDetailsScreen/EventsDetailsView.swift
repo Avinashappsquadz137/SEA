@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventsDetailsView: View {
     let event: EventModel
+    @State private var showLogin = false
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -143,7 +144,14 @@ private extension EventsDetailsView {
                 backgroundColor: .brightOrange,
                 titleColor: .white
             ) {
+                showLogin = true
                 print("Buy Ticket")
+            }
+            .sheet(isPresented: $showLogin) {
+                LoginSignUPScreen(isPresented: $showLogin)
+                    .presentationDetents([.medium])
+                    .presentationBackground(.white)
+                    .presentationDragIndicator(.hidden)
             }
             .padding(.horizontal)
             .padding(.top, 8)

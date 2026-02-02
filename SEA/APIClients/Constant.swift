@@ -21,9 +21,9 @@ class ApiRequest {
         static var serverURL: String {
             switch buildType {
             case .dev:
-                return "https://app.sanskargroup.in"
+                return "https://sea.sanskargroup.in:5320"
             case .pro:
-                return "https://app.sanskargroup.in"
+                return "https://sea.sanskargroup.in:5320"
             }
         }
     }
@@ -31,10 +31,9 @@ class ApiRequest {
 
 struct Constant {
 
-    static let getMenuMaster                  = "data_model_v1/menu_master/get_menu_master"
-    static let getShortsVideo                   = "data_model/Shorts_video/get_shorts_video"
-    static let controlSearchVideos              = "data_model/videos/video_control/search_videos"
-    static let masterSearchCentralSearch              = "data_model/user/Master_search/centralSearch"
+    static let sendOtp                               = "api/auth/send-otp"
+    static let verifyOtp                             = "api/auth/verify-otp"
+    
 }
 
 

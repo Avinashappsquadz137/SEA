@@ -89,5 +89,6 @@ struct TicketDetailCardView: View {
             
             
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }

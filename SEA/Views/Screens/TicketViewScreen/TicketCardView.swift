@@ -52,5 +52,6 @@ struct TicketCardView: View {
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.05), radius: 6)
+        
     }
 }
