@@ -24,7 +24,7 @@ struct HomeView: View {
             date: "Jan 25–27",
             attendees: "15,000 attending",
             price: "₹2999",
-            imageName: "SEAicon"
+            imageName: "Image2"
         ),
         EventModel(
             title: "NH7 Weekender",
@@ -32,7 +32,7 @@ struct HomeView: View {
             date: "Feb 10–12",
             attendees: "10,000 attending",
             price: "₹1999",
-            imageName: "SEAicon"
+            imageName: "Image3"
         )
     ]
     

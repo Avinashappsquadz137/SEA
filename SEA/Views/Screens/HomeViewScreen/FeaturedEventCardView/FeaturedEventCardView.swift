@@ -19,8 +19,8 @@ struct FeaturedEventCardView: View {
             // Background Image
             Image(event.imageName)
                 .resizable()
-                .scaledToFill()
-                .frame(height: 280)
+                .aspectRatio(4/4, contentMode: .fill)
+                .frame(maxWidth: .infinity)
                 .clipped()
 
             // Dark Gradient Overlay

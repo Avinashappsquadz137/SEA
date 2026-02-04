@@ -22,6 +22,13 @@ struct EventsDetailsView: View {
         TicketType(name: "Gold", price: 1499, perks: ["Front Rows", "Free Drink"]),
         TicketType(name: "Premium", price: 1999, perks: ["VIP Seating", "2 Drinks", "Meet & Greet"])
     ]
+    let mediaItems: [EventMedia] = [
+        .image(name: "Image1"),
+        .video(url: URL(string: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8")!),
+        .image(name: "Image2"),
+        .image(name: "Image3")
+    ]
+
     var totalAmount: Int {
         tickets.reduce(0) { $0 + ($1.price * $1.quantity) }
     }
@@ -31,19 +38,8 @@ struct EventsDetailsView: View {
             VStack(spacing: 0) {
 
                 // MARK: - Hero Image
-                ZStack(alignment: .topTrailing) {
-                    Image("SEAicon")
-                        .resizable()
-                        .aspectRatio(16/9, contentMode: .fill)
-                        .frame(maxWidth: .infinity)
-                        .clipped()
+                EventMediaCarousel(mediaItems: mediaItems)
 
-                    HStack(spacing: 12) {
-                        iconButton(systemName: "square.and.arrow.up")
-                        iconButton(systemName: "heart")
-                    }
-                    .padding()
-                }
 
                 // MARK: - Event Info
                 VStack(alignment: .leading, spacing: 16) {
@@ -122,18 +118,7 @@ struct EventsDetailsView: View {
 
 private extension EventsDetailsView {
 
-    func iconButton(systemName: String) -> some View {
-        Button {
-            print("\(systemName) tapped")
-        } label: {
-            Image(systemName: systemName)
-                .foregroundColor(.black)
-                .padding(10)
-                .background(Color.white)
-                .clipShape(Circle())
-                .shadow(radius: 3)
-        }
-    }
+  
 
     func metaItem(icon: String, text: String) -> some View {
         HStack(spacing: 4) {

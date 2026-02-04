@@ -75,10 +75,9 @@ struct ProfileView: View {
                         title: "Logout",
                         backgroundColor: .clear,
                         titleColor: .red,
-                        borderColor: .red
-                    ) {
-                        print("Logout tapped")
-                    }
+                        action:  {
+                            print("Logout tapped")
+                        }, borderColor: .red)
                     
                 }
                 .padding()
