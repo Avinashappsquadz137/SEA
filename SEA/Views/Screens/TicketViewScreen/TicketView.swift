@@ -83,7 +83,7 @@ struct TicketView: View {
     
     let tickets: [TicketModel] = [
         TicketModel(
-            eventName: "Sunburn Festival 2026",
+            eventName: "AVINASH GUPTA",
             date: "Jan 25–27",
             location: "Goa, India",
             bookingId: "TKT4F8G9H2K5",
@@ -103,7 +103,7 @@ struct TicketView: View {
                 if selectedTab == 0 {
                     ForEach(tickets) { ticket in
                         NavigationLink {
-                            TicketDetailCardView(ticket: ticket)
+                            TicketFlipCardView(ticket: ticket)
                                 .padding()
                         } label: {
                             TicketCardView(ticket: ticket)
@@ -121,7 +121,7 @@ struct TicketView: View {
                         }else {
                             ForEach(tickets) { ticket in
                                 NavigationLink {
-                                    TicketDetailCardView(ticket: ticket)
+                                    TicketFlipCardView(ticket: ticket)
                                         .padding()
                                 } label: {
                                     TicketCardView(ticket: ticket)
