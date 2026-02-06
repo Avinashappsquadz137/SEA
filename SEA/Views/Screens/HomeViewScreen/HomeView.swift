@@ -41,6 +41,9 @@ struct HomeView: View {
             VStack(spacing: 0) {
                 AppHeaderView(
                     userName: "AVINASH",
+                    onQRScanTap : {
+                      print("QR Scan tapped")
+                    },
                     onWalletTap: {
                         print("Wallet tapped")
                     },

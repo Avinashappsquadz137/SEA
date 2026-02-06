@@ -11,9 +11,10 @@ import SwiftUI
 struct AppHeaderView: View {
 
     let userName: String
+    let onQRScanTap: () -> Void
     let onWalletTap: () -> Void
     let onNotificationTap: () -> Void
-
+    @State private var doorMan = true
     var body: some View {
         HStack(spacing: 12) {
 
@@ -47,7 +48,13 @@ struct AppHeaderView: View {
 
 
             Spacer()
-
+            //QR Scanner
+            if doorMan == true {
+                Button(action: onQRScanTap) {
+                    Image(systemName: "qrcode")
+                        .font(.title3)
+                }
+            }
             // Wallet Button
             Button(action: onWalletTap) {
                 Image(systemName: "wallet.pass")

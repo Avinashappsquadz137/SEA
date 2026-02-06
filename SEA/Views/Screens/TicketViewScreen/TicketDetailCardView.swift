@@ -37,11 +37,13 @@ struct TicketFlipCardView: View {
                 isFlipped.toggle()
             }
             PrimaryButton(
-                title: "SHOW QR CODE",
+                title: isFlipped ? "SHOW DETAILS" : "SHOW QR CODE",
                 backgroundColor: .purple,
                 titleColor: .white
             ) {
-                isFlipped = true
+                withAnimation {
+                    isFlipped.toggle()
+                }
             }
             HStack(spacing: 12) {
                 PrimaryButton(

@@ -28,6 +28,11 @@ struct ProfileView: View {
                             title: "My Favourite",
                             action: viewModel.myFavourite
                         )
+                        SettingsRowView(
+                            icon: "qrcode",
+                            title: "DOORMAN QR Code",
+                            action: viewModel.myDoorman
+                        )
                     }
 
                     // MARK: - Communication Preferences

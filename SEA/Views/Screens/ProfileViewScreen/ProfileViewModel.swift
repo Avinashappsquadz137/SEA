@@ -34,6 +34,9 @@ final class ProfileViewModel: ObservableObject {
     func myFavourite() {
         print("My Favourite")
     }
+    func myDoorman() {
+        print("My Doorman")
+    }
 }
 
 struct SettingsSectionView<Content: View>: View {
