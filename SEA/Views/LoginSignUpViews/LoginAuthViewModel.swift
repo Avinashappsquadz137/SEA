@@ -7,6 +7,10 @@
 import SwiftUI
 import Combine
 
+final class AuthManager: ObservableObject {
+    @Published var isLoggedIn: Bool = true
+}
+
 @MainActor
 class LoginAuthViewModel: ObservableObject {
 

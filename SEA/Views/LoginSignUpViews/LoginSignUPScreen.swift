@@ -10,7 +10,8 @@ import SwiftUI
 struct LoginSignUPScreen: View {
     @Binding var isPresented: Bool
     @StateObject private var viewModel = LoginAuthViewModel()
-
+    var onLoginSuccess: () -> Void
+    
     var body: some View {
         BottomSheetView {
             if viewModel.step == .phone {
@@ -23,6 +24,7 @@ struct LoginSignUPScreen: View {
         .onChange(of: viewModel.isLoggedIn) { loggedIn in
             if loggedIn {
                 isPresented = false   // ✅ AUTO DISMISS
+                onLoginSuccess() 
             }
         }
     }

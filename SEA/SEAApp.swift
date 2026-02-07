@@ -12,7 +12,8 @@ struct SEAApp: App {
 
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     @State private var showSplash = true
-
+    @StateObject private var authManager = AuthManager()
+    
     var body: some Scene {
         WindowGroup {
             if showSplash {
@@ -26,7 +27,7 @@ struct SEAApp: App {
                     }
             } else {
                 if hasSeenOnboarding {
-                    MainTabBarView() //ContentView()
+                    MainTabBarView().environmentObject(authManager) //ContentView()
                 } else {
                     OnboardingContainerView()
                 }

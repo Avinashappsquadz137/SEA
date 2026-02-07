@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE00BC974065BF7D6F998294 /* Pods_SEA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B85D7BE9769CA5C5E73AE5 /* Pods_SEA.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C7AE16BA2F1B6C1600E4D6C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D8AD70C98891F6CBDB86EA7 /* Pods-SEA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEA.debug.xcconfig"; path = "Target Support Files/Pods-SEA/Pods-SEA.debug.xcconfig"; sourceTree = "<group>"; };
+		65A08E0FD01AF9284CAC84F5 /* Pods-SEA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEA.release.xcconfig"; path = "Target Support Files/Pods-SEA/Pods-SEA.release.xcconfig"; sourceTree = "<group>"; };
 		C7AE16AC2F1B6C1400E4D6C3 /* SEA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SEA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7AE16B92F1B6C1600E4D6C3 /* SEATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SEATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7AE16C32F1B6C1600E4D6C3 /* SEAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SEAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B85D7BE9769CA5C5E73AE5 /* Pods_SEA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SEA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE00BC974065BF7D6F998294 /* Pods_SEA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90740FDA67FBE3BF14F98457 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9B85D7BE9769CA5C5E73AE5 /* Pods_SEA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7AE16A32F1B6C1400E4D6C3 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,8 @@
 				C7AE16BC2F1B6C1600E4D6C3 /* SEATests */,
 				C7AE16C62F1B6C1600E4D6C3 /* SEAUITests */,
 				C7AE16AD2F1B6C1400E4D6C3 /* Products */,
+				D8C0E88B50372F63FE512692 /* Pods */,
+				90740FDA67FBE3BF14F98457 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +123,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D8C0E88B50372F63FE512692 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D8AD70C98891F6CBDB86EA7 /* Pods-SEA.debug.xcconfig */,
+				65A08E0FD01AF9284CAC84F5 /* Pods-SEA.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7AE16CD2F1B6C1600E4D6C3 /* Build configuration list for PBXNativeTarget "SEA" */;
 			buildPhases = (
+				2D084D2C183A6433D99A67DE /* [CP] Check Pods Manifest.lock */,
 				C7AE16A82F1B6C1400E4D6C3 /* Sources */,
 				C7AE16A92F1B6C1400E4D6C3 /* Frameworks */,
 				C7AE16AA2F1B6C1400E4D6C3 /* Resources */,
+				B9A59310A59D063F15974DCF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,8 +153,6 @@
 				C7AE16AE2F1B6C1400E4D6C3 /* SEA */,
 			);
 			name = SEA;
-			packageProductDependencies = (
-			);
 			productName = SEA;
 			productReference = C7AE16AC2F1B6C1400E4D6C3 /* SEA.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +174,6 @@
 				C7AE16BC2F1B6C1600E4D6C3 /* SEATests */,
 			);
 			name = SEATests;
-			packageProductDependencies = (
-			);
 			productName = SEATests;
 			productReference = C7AE16B92F1B6C1600E4D6C3 /* SEATests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,8 +195,6 @@
 				C7AE16C62F1B6C1600E4D6C3 /* SEAUITests */,
 			);
 			name = SEAUITests;
-			packageProductDependencies = (
-			);
 			productName = SEAUITests;
 			productReference = C7AE16C32F1B6C1600E4D6C3 /* SEAUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -243,6 +266,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D084D2C183A6433D99A67DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SEA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9A59310A59D063F15974DCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SEA/Pods-SEA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SEA/Pods-SEA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SEA/Pods-SEA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7AE16A82F1B6C1400E4D6C3 /* Sources */ = {
@@ -320,7 +389,7 @@
 				DEVELOPMENT_TEAM = 7BMX4SN26T;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -384,7 +453,7 @@
 				DEVELOPMENT_TEAM = 7BMX4SN26T;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -405,6 +474,7 @@
 		};
 		C7AE16CE2F1B6C1600E4D6C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8AD70C98891F6CBDB86EA7 /* Pods-SEA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -438,6 +508,7 @@
 		};
 		C7AE16CF2F1B6C1600E4D6C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65A08E0FD01AF9284CAC84F5 /* Pods-SEA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

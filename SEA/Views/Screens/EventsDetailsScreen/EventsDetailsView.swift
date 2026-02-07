@@ -17,6 +17,9 @@ struct TicketType: Identifiable {
 struct EventsDetailsView: View {
     let event: EventModel
     @State private var showLogin = false
+    @State private var showPayment = false
+    @EnvironmentObject var authManager: AuthManager
+    
     @State private var tickets: [TicketType] = [
         TicketType(name: "Silver", price: 999, perks: ["General Seating"]),
         TicketType(name: "Gold", price: 1499, perks: ["Front Rows", "Free Drink"]),
@@ -154,16 +157,26 @@ private extension EventsDetailsView {
                 backgroundColor: totalAmount > 0 ? .brightOrange : .gray,
                 titleColor: .white
             ) {
-                if totalAmount > 0 {
+                guard totalAmount > 0 else { return }
+                if authManager.isLoggedIn {
+                    showPayment = true
+                } else {
                     showLogin = true
                 }
             }
             .disabled(totalAmount == 0)
             .sheet(isPresented: $showLogin) {
-                LoginSignUPScreen(isPresented: $showLogin)
-                    .presentationDetents([.medium])
-                    .presentationBackground(.white)
-                    .presentationDragIndicator(.hidden)
+                LoginSignUPScreen(isPresented: $showLogin) {
+                    authManager.isLoggedIn = true
+                    showLogin = false
+                    showPayment = true
+                }
+                .presentationDetents([.medium])
+                .presentationBackground(.white)
+                .presentationDragIndicator(.hidden)
+            }
+            .sheet(isPresented: $showPayment) {
+                PaymentScreenView(amount: totalAmount, event: event)
             }
             .padding(.horizontal)
             .padding(.top, 8)
