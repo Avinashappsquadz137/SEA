@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
 
     @StateObject private var viewModel = ProfileViewModel()
+    @State private var showDoormanQR = false
+    @State private var showEditProfile = false
 
     var body: some View {
         NavigationStack {
@@ -20,9 +22,11 @@ struct ProfileView: View {
                     SettingsSectionView(title: "Profile") {
                         SettingsRowView(
                             icon: "person",
-                            title: "Edit profile",
-                            action: viewModel.editProfile
-                        )
+                            title: "Edit Profile"
+                        ) {
+                            viewModel.editProfile()
+                            showEditProfile = true
+                        }
                         SettingsRowView(
                             icon: "heart",
                             title: "My Favourite",
@@ -30,9 +34,11 @@ struct ProfileView: View {
                         )
                         SettingsRowView(
                             icon: "qrcode",
-                            title: "DOORMAN QR Code",
-                            action: viewModel.myDoorman
-                        )
+                            title: "DOORMAN QR Code"
+                        ) {
+                            viewModel.myDoorman()
+                            showDoormanQR = true
+                        }
                     }
 
                     // MARK: - Communication Preferences
@@ -90,6 +96,13 @@ struct ProfileView: View {
             //.background(Color.black.ignoresSafeArea())
             .navigationTitle("Account Settings")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $showDoormanQR) {
+                DoormanQRView()
+            }
+            .navigationDestination(isPresented: $showEditProfile) {
+                EditProfileView()
+            }
+
         }
     }
 }

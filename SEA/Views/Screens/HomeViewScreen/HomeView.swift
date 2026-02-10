@@ -35,13 +35,15 @@ struct HomeView: View {
             imageName: "Image3"
         )
     ]
-    
+    @State private var showDoormanQR = false
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 AppHeaderView(
                     userName: "AVINASH",
                     onQRScanTap : {
+                        showDoormanQR = true
+
                       print("QR Scan tapped")
                     },
                     onWalletTap: {
@@ -92,6 +94,9 @@ struct HomeView: View {
             }
             .overlay(ToastView())
             .background(Color(.systemGroupedBackground))
+            .navigationDestination(isPresented: $showDoormanQR) {
+                DoormanQRView()
+            }
         }
     }
     

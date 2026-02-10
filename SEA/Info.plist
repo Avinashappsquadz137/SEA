@@ -9,5 +9,7 @@
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow</string>
 </dict>
 </plist>
