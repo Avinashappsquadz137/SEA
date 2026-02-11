@@ -96,8 +96,8 @@ struct ProfileView: View {
             //.background(Color.black.ignoresSafeArea())
             .navigationTitle("Account Settings")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(isPresented: $showDoormanQR) {
-                DoormanQRView()
+            .fullScreenCover(isPresented: $showDoormanQR) {
+                DoormanTabBarView()
             }
             .navigationDestination(isPresented: $showEditProfile) {
                 EditProfileView()

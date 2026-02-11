@@ -94,8 +94,8 @@ struct HomeView: View {
             }
             .overlay(ToastView())
             .background(Color(.systemGroupedBackground))
-            .navigationDestination(isPresented: $showDoormanQR) {
-                DoormanQRView()
+            .fullScreenCover(isPresented: $showDoormanQR) {
+                DoormanTabBarView()
             }
         }
     }
